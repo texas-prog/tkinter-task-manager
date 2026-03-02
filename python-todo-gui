@@ -1,0 +1,37 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def add_task():
+    task = task_entry.get().strip() 
+    
+    if task:
+        task_listbox.insert(tk.END, task)
+        task_entry.delete(0, tk.END) 
+    else:
+        messagebox.showwarning("Warning", "You didn't type anything!")
+
+def remove_task():
+    try:
+        selected_index = task_listbox.curselection()[0]
+        task_listbox.delete(selected_index)
+    except IndexError:
+        messagebox.showwarning("Warning", "Please click on a task to remove it first!")
+
+window = tk.Tk()
+window.title("Advanced To-Do List")
+window.geometry("350x450") 
+window.config(bg="#f0f0f0") 
+
+task_entry = tk.Entry(window, font=("Helvetica", 14), width=24)
+task_entry.pack(pady=20) 
+
+add_button = tk.Button(window, text="Add Task", bg="#4CAF50", fg="black", font=("Helvetica", 12, "bold"), command=add_task)
+add_button.pack(pady=5)
+
+task_listbox = tk.Listbox(window, font=("Helvetica", 12), width=30, height=12, selectbackground="#a6a6a6")
+task_listbox.pack(pady=15)
+
+remove_button = tk.Button(window, text="Remove Selected Task", bg="#f44336", fg="black", font=("Helvetica", 12, "bold"), command=remove_task)
+remove_button.pack(pady=5)
+
+window.mainloop()
