@@ -22,7 +22,3 @@ This application uses Python's built-in `tkinter` module, so no external third-p
    `cd python-todo-gui`
 3. Run the Python script:
    `python app.py` *(replace `app.py` with the actual name of your python file)*
-
-## Future Improvements
-* Add data persistence (saving tasks to a JSON or text file so they load automatically).
-* Add a "Mark as Complete" feature to cross out finished tasks.
